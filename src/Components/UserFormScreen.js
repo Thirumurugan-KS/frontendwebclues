@@ -1,4 +1,4 @@
-import React, { useState, useReducer} from 'react'
+import React, { useState, useReducer, useRef} from 'react'
 import { Col, Form, Button, Alert } from "react-bootstrap"
 import validator from "email-validator"
 import { useDispatch, useSelector } from 'react-redux'
@@ -10,6 +10,8 @@ import { addUserAction } from '../action/userActions'
 export default function UserFormScreen() {
 
     const dispatch = useDispatch()
+
+    const ref = useRef()
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -28,6 +30,8 @@ export default function UserFormScreen() {
    
 
      const submitHandler = (e) =>{
+
+        console.log(photo)
 
         e.preventDefault()
   
@@ -56,6 +60,7 @@ export default function UserFormScreen() {
         setEmail("")
         setPassword("")
         setphoto("")
+        ref.current.value = ""
 
             }
         }
@@ -105,7 +110,7 @@ export default function UserFormScreen() {
             <Form.Group className='mt-3'>
             <Form.Label>Profile</Form.Label>
              <Form.Control type="file"
-             
+             ref={ref}
              onChange={ e => setphoto(e.target.files[0])}/>
             </Form.Group>
 
