@@ -115,7 +115,7 @@ export default function UserFormScreen() {
             </Form.Group>
 
             <Button className="bg-success mt-3"
-            onClick={submitHandler}>Add Product</Button>
+            onClick={submitHandler}>Add user</Button>
             </Form>
             </Col>
         </div>
