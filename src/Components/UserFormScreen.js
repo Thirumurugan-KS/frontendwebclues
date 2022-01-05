@@ -46,6 +46,10 @@ export default function UserFormScreen() {
             seterrorMessage("Give image format")
             setValerror(true)
         }
+        else if(password.length < 8 || password.length > 16){
+            seterrorMessage("Password length should be greater than 8 or less than 16 character")
+            setValerror(true)
+        }
         else{
         setValerror(false)
         const formData = new FormData();
